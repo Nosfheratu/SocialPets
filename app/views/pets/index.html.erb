@@ -18,19 +18,11 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
-        <td><%= pet.name %></td>
-        <td><%= pet.owner %></td>
-        <td><%= pet.age %></td>
-        <td class="hidden-phone"><%= pet.address %></td>
-        <td class="hidden-phone"><%= pet.birthdate %></td>
-        <td class="hidden-phone"><%= link_to 'Show', pet, class: 'btn btn-primary' %></td>
-        <td class="hidden-phone"><%= link_to 'Edit', edit_pet_path(pet), class: 'btn btn-success' %></td>
-        <td class="hidden-phone"><%= link_to 'Destroy', pet, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td class="visible-phone">
-          <div class="btn-group">
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              Actions
-              <span class="caret"></span>
+        <td>
+          <div class="dropdown">
+            <!--<%= link_to pet.name, '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } %>-->
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <%= pet.name %>
             </a>
             <ul class="dropdown-menu">
               <!-- dropdown menu links -->
@@ -40,6 +32,13 @@
             </ul>
           </div>
         </td>
+        <td><%= pet.owner %></td>
+        <td><%= pet.age %></td>
+        <td class="hidden-phone"><%= pet.address %></td>
+        <td class="hidden-phone"><%= pet.birthdate %></td>
+        <td class="hidden-phone"><%= link_to 'Show', pet, class: 'btn btn-primary' %></td>
+        <td class="hidden-phone"><%= link_to 'Edit', edit_pet_path(pet), class: 'btn btn-success' %></td>
+        <td class="hidden-phone"><%= link_to 'Destroy', pet, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
