@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+//= require twitter/bootstrap
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
-
-$(function(){ $(document).foundation(); });

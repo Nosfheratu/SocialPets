@@ -1,16 +1,17 @@
 <h1>Listing pets</h1>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Owner</th>
       <th>Age</th>
-      <th>Address</th>
-      <th>Birthdate</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class="hidden-phone">Address</th>
+      <th class="hidden-phone">Birthdate</th>
+      <th class="hidden-phone"></th>
+      <th class="hidden-phone"></th>
+      <th class="hidden-phone"></th>
+      <th class="visible-phone"></th>
     </tr>
   </thead>
 
@@ -20,11 +21,25 @@
         <td><%= pet.name %></td>
         <td><%= pet.owner %></td>
         <td><%= pet.age %></td>
-        <td><%= pet.address %></td>
-        <td><%= pet.birthdate %></td>
-        <td><%= link_to 'Show', pet %></td>
-        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="hidden-phone"><%= pet.address %></td>
+        <td class="hidden-phone"><%= pet.birthdate %></td>
+        <td class="hidden-phone"><%= link_to 'Show', pet, class: 'btn btn-primary' %></td>
+        <td class="hidden-phone"><%= link_to 'Edit', edit_pet_path(pet), class: 'btn btn-success' %></td>
+        <td class="hidden-phone"><%= link_to 'Destroy', pet, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="visible-phone">
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Actions
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+              <li><%= link_to 'Show', pet %></li>
+              <li><%= link_to 'Edit', edit_pet_path(pet) %></li>
+              <li><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +47,4 @@
 
 <br>
 
-<%= link_to 'New Pet', new_pet_path %>
+<%= link_to 'New Pet', new_pet_path, class: 'btn btn-primary' %>
