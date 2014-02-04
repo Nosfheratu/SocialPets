@@ -1,0 +1,4 @@
+/* fixes dropdown link cannot be clicked on nav-collapse in Bootstrap v2.3 */
+.dropdown-backdrop {
+  position: static;
+}
